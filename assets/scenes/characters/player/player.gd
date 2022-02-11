@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const SPEED = 100
-const GRAVITY = 9.8
+const GRAVITY = 7.5
 const JUMPFORCE = -250
 
 
@@ -28,6 +28,6 @@ func _physics_process(delta):
 		velocity.y = JUMPFORCE
 	
 
-	move_and_slide(velocity,Vector2.UP)
+	velocity = move_and_slide(velocity,Vector2.UP)
 	
 	velocity.x = lerp(velocity.x,0,0.2)
