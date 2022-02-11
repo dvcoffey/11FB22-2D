@@ -1,24 +1,33 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
+const SPEED = 100
+const GRAVITY = 9.8
+const JUMPFORCE = -250
 
-var velocity = Vector2()
 
-func get_input():
-	velocity = Vector2()
+var velocity = Vector2(0,0)
+
+func _physics_process(delta):
 	if Input.is_action_pressed("right"):
-		velocity.x += 1
+		velocity.x = SPEED
 		$AnimatedSprite.play("run")
 		$AnimatedSprite.flip_h = false
 	elif Input.is_action_pressed("left"):
-		velocity.x -= 1
+		velocity.x = -SPEED
 		$AnimatedSprite.play("run")
 		$AnimatedSprite.flip_h = true
 	else:
 		$AnimatedSprite.play("idle")
-	velocity = velocity.normalized() * speed
+	
+	if not is_on_floor():
+		$AnimatedSprite.play("jump")
+	
+	velocity.y = velocity.y + GRAVITY
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMPFORCE
+	
 
-func _physics_process(delta):
-	get_input()
-	velocity = move_and_slide(velocity)
-
+	move_and_slide(velocity,Vector2.UP)
+	
+	velocity.x = lerp(velocity.x,0,0.2)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://11FB22-2D/assets/images/sprites/player/Idle.png" type="Texture" id=1]
 [ext_resource path="res://11FB22-2D/assets/scenes/characters/player/player.gd" type="Script" id=2]
 [ext_resource path="res://11FB22-2D/assets/images/sprites/player/Run.png" type="Texture" id=3]
+[ext_resource path="res://11FB22-2D/assets/images/sprites/player/Jump.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -36,36 +37,36 @@ region = Rect2( 0, 192, 128, 64 )
 atlas = ExtResource( 1 )
 region = Rect2( 128, 192, 128, 64 )
 
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 128, 64 )
 
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 4 )
 region = Rect2( 128, 0, 128, 64 )
 
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 4 )
 region = Rect2( 0, 64, 128, 64 )
 
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 4 )
 region = Rect2( 128, 64, 128, 64 )
 
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 4 )
 region = Rect2( 0, 128, 128, 64 )
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 4 )
 region = Rect2( 128, 128, 128, 64 )
 
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 4 )
 region = Rect2( 0, 192, 128, 64 )
 
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 4 )
 region = Rect2( 128, 192, 128, 64 )
 
 [sub_resource type="AtlasTexture" id=19]
@@ -107,7 +108,7 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
@@ -128,7 +129,8 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -2, -10 )
 frames = SubResource( 9 )
-animation = "jump"
+animation = "idle"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 10 )
