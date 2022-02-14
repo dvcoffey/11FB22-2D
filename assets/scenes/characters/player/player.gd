@@ -31,3 +31,8 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity,Vector2.UP)
 	
 	velocity.x = lerp(velocity.x,0,0.2)
+
+
+func _on_fallzone_body_entered(body):
+	get_tree().change_scene("res://11FB22-2D/assets/scenes/levels/level-1.tscn")
+	print("death")
