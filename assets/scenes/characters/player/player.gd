@@ -32,14 +32,8 @@ func _physics_process(delta):
 	
 	velocity.x = lerp(velocity.x,0,0.2)
 	
-	if coins == 10:
-		get_tree().change_scene("res://11FB22-2D/assets/scenes/levels/level-1.tscn")
-
 
 func _on_fallzone_body_entered(body):
 	get_tree().change_scene("res://11FB22-2D/assets/scenes/levels/level-1.tscn")
 	print("death")
 
-func add_coin():
-	coins += 1
-	print(coins)
