@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://11FB22-2D/assets/scenes/characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://11FB22-2D/assets/tilesets/dungeon-1.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://11FB22-2D/assets/fonts/CompassPro.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://11FB22-2D/assets/images/hud/hud-coin.png" type="Texture" id=8]
 [ext_resource path="res://11FB22-2D/assets/scripts/hud/HUD.gd" type="Script" id=9]
+[ext_resource path="res://11FB22-2D/assets/scenes/enemies/evil_wizard.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 55.9221, 8 )
@@ -65,6 +66,8 @@ format = 1
 tile_data = PoolIntArray( 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524323, 0, 0, 720942, 0, 0, 720943, 0, 0, 720944, 0, 0, 720945, 0, 0, 720946, 0, 0, 720947, 0, 0, 720948, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 786456, 0, 0, 786457, 0, 0, 786458, 0, 0, 786459, 0, 0, 983077, 0, 0, 983078, 0, 0, 983079, 0, 0, 983080, 0, 0, 983081, 0, 0, 983082, 0, 0, 983083, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245235, 0, 0, 1245236, 0, 0, 1245237, 0, 0, 1245238, 0, 0, 1245239, 0, 0, 1245240, 0, 0, 1245241, 0, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tile-oneway"]
+collision_layer = 2
+collision_mask = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tile-oneway/StaticBody2D"]
 position = Vector2( 392, 200 )
@@ -117,6 +120,7 @@ limit_right = 1024
 limit_bottom = 384
 
 [node name="fallzone" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fallzone"]
 position = Vector2( 160, 424 )
@@ -216,6 +220,16 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="evil_wizard" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 536, 104 )
+detects_cliffs = false
+
+[node name="evil_wizard2" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 424, 280 )
+direction = -1
 [connection signal="body_entered" from="fallzone" to="player" method="_on_fallzone_body_entered"]
 [connection signal="coin_collected" from="coins/coin-1" to="HUD" method="_on_coin_collected"]
 [connection signal="coin_collected" from="coins/coin-2" to="HUD" method="_on_coin_collected"]
