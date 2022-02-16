@@ -36,4 +36,25 @@ func _physics_process(delta):
 func _on_fallzone_body_entered(body):
 	get_tree().change_scene("res://11FB22-2D/assets/scenes/levels/level-1.tscn")
 	print("death")
+	
 
+func bounce():
+	velocity.y = JUMPFORCE * .5
+	
+func hit(var enemyposx):
+	set_modulate(Color(1,0.3,0.3,0.3))
+	velocity.y = JUMPFORCE * .5
+	
+	if position.x < enemyposx:
+		velocity.x = - 750
+	elif position.x > enemyposx:
+		velocity.x = 750
+		
+	Input.action_release("left")
+	Input.action_release("right")
+	
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	get_tree().change_scene("res://11FB22-2D/assets/scenes/levels/level-1.tscn")

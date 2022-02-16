@@ -225,7 +225,6 @@ __meta__ = {
 
 [node name="evil_wizard" parent="enemies" instance=ExtResource( 10 )]
 position = Vector2( 536, 104 )
-detects_cliffs = false
 
 [node name="evil_wizard2" parent="enemies" instance=ExtResource( 10 )]
 position = Vector2( 424, 280 )
