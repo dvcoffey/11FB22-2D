@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg_grass_far.png-49a6bc9886797854c2e9ae5223fcc558.stex"
+path="res://.import/Hanging.png-2d78c0ebe74bb3a68af4f34accb0fb53.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://11FB22-2D/assets/images/backgrounds/landscapes/bg_grass_far.png"
-dest_files=[ "res://.import/bg_grass_far.png-49a6bc9886797854c2e9ae5223fcc558.stex" ]
+source_file="res://11FB22-2D/assets/images/sprites/player/Hanging.png"
+dest_files=[ "res://.import/Hanging.png-2d78c0ebe74bb3a68af4f34accb0fb53.stex" ]
 
 [params]
 
