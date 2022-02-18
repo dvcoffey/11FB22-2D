@@ -39,9 +39,11 @@ func _on_top_checker_body_entered(body):
 	body.bounce()
 
 
-func _on_sides_checker_body_entered(body):
-	body.hit(position.x)
-
 
 func _on_Timer_timeout():
 	queue_free()
+
+
+func _on_wizardarea_area_entered(area):
+	if area.is_in_group("slash"):
+		queue_free()
