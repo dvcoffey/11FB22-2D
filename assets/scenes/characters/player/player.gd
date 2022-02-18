@@ -11,6 +11,10 @@ var attackPoints = 4
 var coins = 0
 var velocity = Vector2(0,0)
 var state = States.AIR
+var playerHP = 32
+var slashDMG = 10
+var thrustDMG = 20
+var sweepDMG = 30
 
 
 #------------Movement and gravity.
